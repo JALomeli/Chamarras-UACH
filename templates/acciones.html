@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="output.css" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <link rel="icon" href="/static/images/Escudo-uach.png" type="image/x-icon" />
+</head>
+
+<body class="flex flex-col min-h-screen ">
+  <header class="bg-purple-900">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <div class="flex lg:flex-1">
+        <a href="{{ url_for('inicio') }}" class="-m-1.5 p-1.5">
+          <span class="sr-only">Universidad Autonoma de Chihuahua</span>
+          <img class="h-16 w-auto" src="/static/images/Escudo-uach.png" alt="Logotipo Universidad Autonoma de Chihuahua" />
+        </a>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <a href="{{ url_for('inicio') }}" class="text-sm/6 font-semibold text-white">Inicio</a>
+        <a href="{{ url_for('formulario') }}" class="text-sm/6 font-semibold text-white">Realiza tu pedido</a>
+        <a href="{{ url_for('acciones') }}" class="text-sm/6 font-semibold text-white">Acciones</a>
+        <a href="{{ url_for('inventario') }}" class="text-sm/6 font-semibold text-white">Inventario</a>
+        <a href="{{ url_for('graficas') }}" class="text-sm/6 font-semibold text-white">Estadisticas</a>
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a href="#" class="text-sm/6 font-semibold text-white">Inicia sesión<span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </nav>
+  </header>
+
+<main class="flex-grow">
+  <div class="flex flex-col items-center p-2 m-2">
+    <h2 class="mx-3 flex flex-col items-center font-bold text-4xl  text-center p-2 m-2 ">Envio de Mensajes Masivos</h2>
+    <form method="POST" action="/enviar_mensaje">
+        <h3 class="mx-3 flex flex-col items-center font-bold text-2xl text-center P-1">Envio de Mensajes por EMAIL</h3>
+        <div class="space-y-12">
+            <div class="border-b border-gray-900/10 p-8">
+                <p class="mt-1 text-sm text-gray-600">A continuación puedes enviar un mensaje por email masivo a los usuarios registrados. El mensaje será enviado a los destinatarios obtenidos desde la base de datos.</p>
+            </div>
+            <div class="mt-10">
+                <label for="asunto" class="block text-sm font-medium text-gray-900">Asunto del correo</label>
+                <div class="mt-2">
+                    <input type="text" name="asunto" id="asunto" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm" placeholder="Escribe aquí el asunto" required />
+                </div>
+            </div>
+            <div class="mt-10">
+                <label for="mensaje" class="block text-sm font-medium text-gray-900">Mensaje por correo electrónico</label>
+                <div class="mt-2">
+                    <textarea name="mensaje" id="mensaje" rows="4" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm" placeholder="Escribe aquí el mensaje que deseas enviar..." required></textarea>
+                </div>
+            </div>
+    
+            <div class="mt-6 flex items-center justify-end gap-x-6">
+                <button type="button" class="text-sm font-semibold text-gray-900">Cancelar</button>
+                <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Enviar Mensajes
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <form method="POST" action="/enviar_whatsapp">
+        <div class="space-y-4">
+            <h3 class="mx-3 flex flex-col items-center font-bold text-2xl  text-center  P-2 ">Envio de Mensajes por WhatsApp</h3>
+            <div class="border-b border-gray-900/10 p-12">
+                <p class="mt-1 text-sm text-gray-600">A continuación puedes enviar un mensaje por whatsapp masivo a los usuarios registrados. El mensaje será enviado a los destinatarios obtenidos desde la base de datos.</p>
+            </div>
+
+            <div class="mt-10">
+                <label for="mensaje" class="block text-sm font-medium text-gray-900">Mensaje por whatsapp</label>
+                <div class="mt-2">
+                    <textarea name="mensaje" id="mensaje" rows="4" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm" placeholder="Escribe aquí el mensaje que deseas enviar..." required></textarea>
+                </div>
+            </div>
+    
+            <div class="mt-6 flex items-center justify-end gap-x-6">
+                <button type="button" class="text-sm font-semibold text-gray-900">Cancelar</button>
+                <button type="submit" class="rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Enviar Mensajes
+                </button>
+            </div>
+        </div>
+    </form>
+  </div>
+
+</main>
+  <footer class="bg-purple-900 text-white py-4 flex flex-col items-center justify-between h-auto mt-auto">
+    <div class="container mx-auto flex flex-col items-center space-y-4">
+      <div class="flex items-center space-x-2">
+        <small class="block text-sm">2024 © Todos los derechos reservados</small>
+        <ul class="inline-flex space-x-2">
+          <li><span>|</span></li>
+          <li>
+            <a href="{{ url_for('privacidad')}}" class="text-white hover:text-opacity-80">Privacidad y Políticas</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex items-center">
+        <a href="https://wa.me/+5216144099940"
+          class="inline-flex items-center bg-green-500 text-white py-2 px-4 rounded-full hover:bg-green-600 transition">
+          <i class="fab fa-whatsapp mr-2"></i> Contáctanos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

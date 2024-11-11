@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventario</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link
+      rel="icon"
+      href="/static/images/Escudo-uach.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <header class="bg-purple-900">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <div class="flex lg:flex-1">
+          <a href="{{ url_for('inicio') }}" class="-m-1.5 p-1.5">
+            <span class="sr-only">Universidad Autonoma de Chihuahua</span>
+            <img class="h-16 w-auto" src="/static/images/Escudo-uach.png" alt="Logotipo Universidad Autonoma de Chihuahua" />
+          </a>
+        </div>
+        <div class="hidden lg:flex lg:gap-x-12">
+          <a href="{{ url_for('inicio') }}" class="text-sm/6 font-semibold text-white">Inicio</a>
+          <a href="{{ url_for('formulario') }}" class="text-sm/6 font-semibold text-white">Realiza tu pedido</a>
+          <a href="{{ url_for('acciones') }}" class="text-sm/6 font-semibold text-white">Acciones</a>
+          <a href="{{ url_for('inventario') }}" class="text-sm/6 font-semibold text-white">Inventario</a>
+          <a href="{{ url_for('graficas') }}" class="text-sm/6 font-semibold text-white">Estadisticas</a>
+        </div>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+          <a href="#" class="text-sm/6 font-semibold text-white">Inicia sesión<span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-grow p-6 text-center">
+      <h1 class="text-2xl font-semibold p-4">Inventario de Pedidos</h1>
+      <table class="min-w-full bg-white border border-gray-300">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="py-2 px-4 border-b">Nombre</th>
+            <th class="py-2 px-4 border-b">Email</th>
+            <th class="py-2 px-4 border-b">Teléfono</th>
+            <th class="py-2 px-4 border-b">Matrícula</th>
+            <th class="py-2 px-4 border-b">Color Chamarra</th>
+            <th class="py-2 px-4 border-b">Tamaño Chamarra</th>
+            <th class="py-2 px-4 border-b">Texto Bordado</th>
+            <th class="py-2 px-4 border-b">Cantidad Depositada</th>
+            <th class="py-2 px-4 border-b">Tipo de Pago</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for pedido in pedidos %}
+          <tr>
+            <td class="py-2 px-4 border-b">{{ pedido.nombre_usuario }}</td>
+            <td class="py-2 px-4 border-b">{{ pedido.correo }}</td>
+            <td class="py-2 px-4 border-b">{{ pedido.telefono }}</td>
+            <td class="py-2 px-4 border-b">{{ pedido.matricula }}</td>
+            <td class="py-2 px-4 border-b">{{ pedido.color }}</td>
+            <td class="py-2 px-4 border-b">{{ pedido.talla }}</td>
+            <td class="py-2 px-4 border-b">{{ pedido.nombre_personalizado }}</td>
+            <td class="py-2 px-4 border-b">{{ pedido.numero_deposito }}</td>
+            <td class="py-2 px-4 border-b">{{ pedido.tipo_pago }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <form action="{{ url_for('eliminar_pedido') }}" method="POST">
+        <input type="text" name="nombre_usuario" placeholder="Ingrese el nombre del usuario" required class="border px-4 py-2 m-3">
+        <button type="submit" class="bg-red-500 text-white px-4 py-2">Eliminar Pedido</button>
+      </form>
+    </main>
+
+    <footer
+      class="bg-purple-900 text-white py-4 flex flex-col items-center justify-between h-auto mt-auto"
+    >
+      <div class="container mx-auto flex flex-col items-center space-y-4">
+        <div class="flex items-center space-x-2">
+          <small class="block text-sm"
+            >2024 © Todos los derechos reservados</small
+          >
+          <ul class="inline-flex space-x-2">
+            <li><span>|</span></li>
+            <li>
+              <a href="{{ url_for('privacidad')}}" class="text-white hover:text-opacity-80"
+                >Privacidad y Políticas</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex items-center">
+          <a
+            href="https://wa.me/+5216144099940"
+            class="inline-flex items-center bg-green-500 text-white py-2 px-4 rounded-full hover:bg-green-600 transition"
+          >
+            <i class="fab fa-whatsapp mr-2"></i> Contáctanos por WhatsApp
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>  

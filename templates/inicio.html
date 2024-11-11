@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="output.css" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <link rel="icon" href="/static/images/Escudo-uach.png" type="image/x-icon" />
+</head>
+
+<body class="flex flex-col min-h-screen ">
+  <header class="bg-purple-900">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <div class="flex lg:flex-1">
+        <a href="{{ url_for('inicio') }}" class="-m-1.5 p-1.5">
+          <span class="sr-only">Universidad Autonoma de Chihuahua</span>
+          <img class="h-16 w-auto" src="/static/images/Escudo-uach.png" alt="Logotipo Universidad Autonoma de Chihuahua" />
+        </a>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <a href="{{ url_for('inicio') }}" class="text-sm/6 font-semibold text-white">Inicio</a>
+        <a href="{{ url_for('formulario') }}" class="text-sm/6 font-semibold text-white">Realiza tu pedido</a>
+        <a href="{{ url_for('acciones') }}" class="text-sm/6 font-semibold text-white">Acciones</a>
+        <a href="{{ url_for('inventario') }}" class="text-sm/6 font-semibold text-white">Inventario</a>
+        <a href="{{ url_for('graficas') }}" class="text-sm/6 font-semibold text-white">Estadisticas</a>
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a href="#" class="text-sm/6 font-semibold text-white">Inicia sesión<span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </nav>
+  </header>
+<main class="flex-grow">
+  <div class="flex flex-col items-center p-2 m-2">
+    <h1 class="container mx-3 flex flex-col items-center font-bold text-4xl p-2 m-2">
+      Chamarras Universitarias
+    </h1>
+    <h2 class="container mx-3 flex flex-col items-center font-bold text-2xl p-2 m-2">
+      Existen dos colores de chamarras, azul y rosa:
+    </h2>
+    <div class="flex items-center space-x-10">
+      <div class="flex items-center flex-col justify-center">
+        <img src="/static/images/chamarra_azul.png" alt="Imagen 1"
+          class="w-80 h-80 border-4 border-gray-300 rounded-lg shadow-lg p-2 m-2" />
+        <h4>Chamarra universitaria azul</h4>
+        <p class="text-lg font-semibold text-gray-700">$690 MXN</p>
+        <p class="text-sm text-gray-600">Talla XXL +$30 MXN.</p>
+      </div>
+      <div class="flex items-center flex-col justify-center">
+        <img src="/static/images/chamarra_rosa.png" alt="Imagen 2"
+          class="w-80 h-80 border-4 border-gray-300 rounded-lg shadow-lg p-2 m-2" />
+        <h4>Chamarra universitaria rosa</h4>
+        <p class="text-lg font-semibold text-gray-700">$720 MXN</p>
+        <p class="text-sm text-gray-600"> Talla XXL +$30 MXN.</p>
+      </div>
+    </div>
+    <h2 class="container mx-3 flex flex-col items-center font-bold text-2xl p-2 m-2">
+      ¿Que contiene?
+    </h2>
+    <div class="flex items-center space-x-10">
+      <div class="flex items-center flex-col justify-center">
+        <img src="/static/images/fing-escudo.png" alt="Imagen 1"
+          class="w-80 h-80 border-4 border-gray-300 rounded-lg shadow-lg p-2 m-2" />
+        <h4>Logotipo de la facultad de ingenieria</h4>
+      </div>
+      <div class="flex items-center flex-col justify-center">
+        <img src="/static/images/Castor.png" alt="Imagen 2"
+          class="w-80 h-80 border-4 border-gray-300 rounded-lg shadow-lg p-2 m-2" />
+        <h4>Logotipo de los castores</h4>
+      </div>
+      <div class="flex items-center flex-col justify-center">
+        <img src="/static/images/castores_wolowit.png" alt="Imagen 2"
+          class="w-80 h-80 border-4 border-gray-300 rounded-lg shadow-lg p-2 m-2" />
+        <h4>bordado personalizado</h4>
+      </div>
+    </div>
+    <h2 class="container mx-3 flex flex-col items-center font-bold text-2xl p-2 m-2">
+      Muestras
+    </h2>
+    <div class="flex items-center space-x-10">
+      <div class="flex items-center flex-col justify-center">
+        <img src="/static/images/real1.jpg" alt="Imagen 1"
+          class="w-80 h-80 border-4 border-gray-300 rounded-lg shadow-lg p-2 m-2" />
+        <h4>Muestra de frente</h4>
+      </div>
+      <div class="flex items-center flex-col justify-center">
+        <img src="/static/images/chamarra_real_sola.jpg" alt="Imagen 2"
+          class="w-80 h-80 border-4 border-gray-300 rounded-lg shadow-lg p-2 m-2" />
+        <h4>Chamarra universitaria azul</h4>
+      </div>
+      <div class="flex items-center flex-col justify-center">
+        <img src="/static/images/real2.jpg" alt="Imagen 2"
+          class="w-80 h-80 border-4 border-gray-300 rounded-lg shadow-lg p-2 m-2" />
+        <h4>Muestra de lado</h4>
+      </div>
+    </div>
+    <div>
+      <h2 class="container mx-3 flex flex-col items-center font-bold text-2xl p-2 m-2">
+        Medidas de las chamarras
+      </h2>
+      <div class="flex items-center space-x-10">
+        <div class="flex items-center flex-col justify-center">
+          <img src="/static/images/medidas_chamarras.jpg" alt="Imagen 1"
+            class="w-svw h-svw border-4 border-gray-300 rounded-lg shadow-lg p-2 m-2" />
+          <h4>Nota: Recientemente se agrego la talla XXL </h4>
+        </div>
+      </div>
+    </div>
+    <div class="p-2">
+      <a href="{{ url_for('formulario') }}" >
+
+        <button class="bg-yellow-300 hover:bg-yellow-500 text-black  text-3xl font-bold py-4 px-8 rounded-full">
+          Realiza tu pedido
+        </button>
+      </a>
+
+
+    </div>
+  </div>
+</main>
+  <footer class="bg-purple-900 text-white py-4 flex flex-col items-center justify-between h-auto mt-auto">
+    <div class="container mx-auto flex flex-col items-center space-y-4">
+      <div class="flex items-center space-x-2">
+        <small class="block text-sm">2024 © Todos los derechos reservados</small>
+        <ul class="inline-flex space-x-2">
+          <li><span>|</span></li>
+          <li>
+            <a href="{{ url_for('privacidad')}}" class="text-white hover:text-opacity-80">Privacidad y Políticas</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex items-center">
+        <a href="https://wa.me/+5216144099940"
+          class="inline-flex items-center bg-green-500 text-white py-2 px-4 rounded-full hover:bg-green-600 transition">
+          <i class="fab fa-whatsapp mr-2"></i> Contáctanos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
